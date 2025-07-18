@@ -1,0 +1,17 @@
+[project]
+name = "uv-ruff-project"
+version = "0.1.0"
+description = "Dev Container with uv and ruff"
+dependencies = [
+    "requests",
+]
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "ruff",
+]

@@ -1,0 +1,27 @@
+{
+  "name": "uv-ruff-python-local",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "python.defaultInterpreterPath": "/workspaces/my-devcontainer-project/.venv/bin/python",
+        "python.terminal.activateEnvironment": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "charliermarsh.ruff",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  },
+  "postCreateCommand": "python3 --version && pip3 install uv ruff && cd /workspaces/my-devcontainer-project && uv venv --clear && uv pip install -e . && echo 'source /workspaces/my-devcontainer-project/.venv/bin/activate' >> ~/.bashrc",
+  "remoteUser": "vscode",
+  "shutdownAction": "stopContainer"
+}
